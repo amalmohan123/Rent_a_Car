@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:rent_a_car/view/widgets/custom_button.dart';
 
 class LoginPage extends StatefulWidget {
-  LoginPage({super.key});
+  const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20, top: 150),
+          padding: const EdgeInsets.only(left: 20, right: 20, top: 120),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,44 +60,73 @@ class _LoginPageState extends State<LoginPage> {
                         isObscure
                             ? Icons.visibility
                             : Icons.visibility_off_rounded,
-                        color: Colors.grey.shade600,
+                        color: Colors.grey.shade400,
                       ),
                       onPressed: () {
-                        setState(() {
-                          isObscure = !isObscure;
-                        });
+                        setState(
+                          () {
+                            isObscure = !isObscure;
+                          },
+                        );
                       },
                     ),
                   )
                 ],
               ),
-              const SizedBox(height: 25),
               Center(
                 child: Column(
                   children: [
-                    CustomButton(
-                      size: size,
-                      buttonText: 'Sign Up',
-                      onTap: () {},
-                    ),
-                    const Column(
-                      children: [
-                        Text('Forgoat Password'),
-                      ],
-                    ),
+                    const SizedBox(height: 25),
+                    isSignIn
+                        ? CustomButton(
+                            size: size,
+                            buttonText: 'Sign Up',
+                            onTap: () {
+                              Navigator.pushNamed(context, '/BottomNavBar');
+                            },
+                          )
+                        : Column(
+                            children: [
+                              Align(
+                                alignment: Alignment.bottomRight,
+                                child: TextButton(
+                                  onPressed: () {},
+                                  child: const Text(
+                                    'Forgoat Password?',
+                                    style: TextStyle(
+                                        color:
+                                            Color.fromARGB(255, 232, 65, 53)),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 5),
+                              CustomButton(
+                                size: size,
+                                buttonText: 'Sign In',
+                                onTap: () {},
+                              )
+                            ],
+                          ),
                     const SizedBox(height: 15),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text(
-                          'Already have an account?',
-                          style: TextStyle(color: Colors.grey, fontSize: 15),
+                        Text(
+                          isSignIn
+                              ? 'Already have an account?'
+                              : 'Don\'t have an account?',
+                          style:
+                              const TextStyle(color: Colors.grey, fontSize: 15),
                         ),
                         TextButton(
-                          onPressed: () {},
-                          child: const Text(
-                            'Sign In',
-                            style: TextStyle(
+                          onPressed: () {
+                            setState(() {
+                              isSignIn = !isSignIn;
+                            });
+                          },
+                          child: Text(
+                            isSignIn ? 'Sign In' : 'Sign Up',
+                            style: const TextStyle(
                                 color: Color.fromARGB(255, 232, 65, 53),
                                 fontSize: 18),
                           ),

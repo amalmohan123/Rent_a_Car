@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_a_car/controller/login_provider.dart';
 import 'package:rent_a_car/view/login_page.dart';
+import 'package:rent_a_car/view/widgets/bottom_nav.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -24,12 +25,13 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
             seedColor: Colors.deepPurple,
-            background: const Color.fromARGB(255, 58, 53, 66),
+            background: Color.fromARGB(238, 45, 42, 50),
           ),
           useMaterial3: true,
         ),
         routes: {
-          "/": (context) => LoginPage(),
+          "/": (context) => const LoginPage(),
+          "/BottomNavBar": (context) => BottomNavBar()
         },
       ),
     );
