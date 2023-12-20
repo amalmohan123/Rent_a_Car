@@ -33,10 +33,18 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 50),
               TextFormField(
+                keyboardType: TextInputType.emailAddress,
+                style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   hintText: 'Email',
-                  hintStyle: TextStyle(color: Colors.grey.shade600),
+                  hintStyle: TextStyle(
+                    color: Colors.grey.shade600,
+                  ),
                   border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Colors.white),
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
@@ -45,12 +53,16 @@ class _LoginPageState extends State<LoginPage> {
               Stack(
                 children: [
                   TextFormField(
+                    style: const TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                       hintText: 'Password',
                       hintStyle: TextStyle(color: Colors.grey.shade600),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(color: Colors.white),
+                          borderRadius: BorderRadius.circular(10)),
                     ),
                   ),
                   Padding(
@@ -136,6 +148,16 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(height: 15),
                     Divider(
                       color: Colors.grey.shade600,
+                    ),
+                    const SizedBox(height: 18),
+                    GestureDetector(
+                      onTap: () {},
+                      child: SizedBox(
+                        height: 45,
+                        child: Image.asset(
+                          'assets/image/2993685_brand_brands_google_logo_logos_icon.png',
+                        ),
+                      ),
                     )
                   ],
                 ),

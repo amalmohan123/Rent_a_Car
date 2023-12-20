@@ -9,19 +9,18 @@ class BottomNavBar extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       bottomNavigationBar: Container(
-        
         width: size.width,
-        height: size.height*.094,
+        height: size.height * .094,
         decoration: BoxDecoration(
-          color:   const Color.fromARGB(255, 118, 116, 129).withOpacity(0.25),
+          color: Colors.transparent,
           boxShadow: [
             BoxShadow(
               color: const Color.fromARGB(255, 91, 89, 101).withOpacity(0.25),
               spreadRadius: 15,
               blurRadius: 15,
-              offset: const Offset(1,1),
+              offset: const Offset(1, 1),
             )
-          ]
+          ],
         ),
         child: CurvedNavigationBar(
           backgroundColor: const Color.fromARGB(238, 45, 42, 50),
@@ -32,30 +31,46 @@ class BottomNavBar extends StatelessWidget {
           items: [
             GestureDetector(
               onTap: () {},
-              child: const Icon(
-                Icons.home,
-                color: Colors.white,
+              child: const Padding(
+                padding: EdgeInsets.all(15.0),
+                child: Icon(
+                  Icons.home,
+                  color: Colors.white,
+                  size: 30,
+                ),
               ),
             ),
             GestureDetector(
               onTap: () {},
-              child: const Icon(
-                Icons.home,
-                color: Colors.white,
+              child: const Padding(
+                padding: EdgeInsets.all(15.0),
+                child: Icon(
+                  Icons.search,
+                  color: Colors.white,
+                  size: 30,
+                ),
               ),
             ),
             GestureDetector(
               onTap: () {},
-              child: const Icon(
-                Icons.home,
-                color: Colors.white,
+              child: const Padding(
+                padding: EdgeInsets.all(15.0),
+                child: Icon(
+                  Icons.history_rounded,
+                  color: Colors.white,
+                  size: 30,
+                ),
               ),
             ),
             GestureDetector(
               onTap: () {},
-              child: const Icon(
-                Icons.home,
-                color: Colors.white,
+              child: const Padding(
+                padding: EdgeInsets.all(15.0),
+                child: Icon(
+                  Icons.account_circle_rounded,
+                  color: Colors.white,
+                  size: 30,
+                ),
               ),
             ),
           ],

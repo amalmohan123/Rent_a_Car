@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:rent_a_car/controller/login_provider.dart';
+import 'package:rent_a_car/controller/login_provider/login_provider.dart';
 import 'package:rent_a_car/view/login_page.dart';
 import 'package:rent_a_car/view/widgets/bottom_nav.dart';
 
@@ -18,20 +18,24 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (context) => LoginProvider())],
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => LoginProvider(),
+        ),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
             seedColor: Colors.deepPurple,
-            background: Color.fromARGB(238, 45, 42, 50),
+            background: const Color.fromARGB(238, 45, 42, 50),
           ),
           useMaterial3: true,
         ),
         routes: {
           "/": (context) => const LoginPage(),
-          "/BottomNavBar": (context) => BottomNavBar()
+          "/BottomNavBar": (context) => const BottomNavBar()
         },
       ),
     );
