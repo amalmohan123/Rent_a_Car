@@ -151,15 +151,15 @@ class _LoginPageState extends State<LoginPage> {
                       color: Colors.grey.shade600,
                     ),
                     const SizedBox(height: 18),
-                    // GestureDetector(
-                    //   onTap: () {},
-                    //   child: SizedBox(
-                    //     height: 45,
-                    //     child: Image.asset(
-                    //       'assets/image/2993685_brand_brands_google_logo_logos_icon.png',
-                    //     ),
-                    //   ),
-                    // )
+                    GestureDetector(
+                      onTap: () {},
+                      child: SizedBox(
+                        height: 45,
+                        child: Image.asset(
+                          'assets/image/2993685_brand_brands_google_logo_logos_icon.png',
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),
