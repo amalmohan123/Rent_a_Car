@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:rent_a_car/controller/login_provider/login_provider.dart';
 import 'package:rent_a_car/view/widgets/custom_button.dart';
 
 class LoginPage extends StatefulWidget {
@@ -11,10 +13,12 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool isSignIn = true;
-  bool isObscure = true;
+  // bool isObscure = true;
 
   @override
   Widget build(BuildContext context) {
+    final loginProvider = Provider.of<LoginProvider>(context, listen: false);
+
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
@@ -69,17 +73,14 @@ class _LoginPageState extends State<LoginPage> {
                     padding: const EdgeInsets.only(left: 295, top: 8),
                     child: IconButton(
                       icon: Icon(
-                        isObscure
+                        loginProvider.isObscure
                             ? Icons.visibility
                             : Icons.visibility_off_rounded,
                         color: Colors.grey.shade400,
                       ),
                       onPressed: () {
-                        setState(
-                          () {
-                            isObscure = !isObscure;
-                          },
-                        );
+                        Provider.of<LoginProvider>(context, listen: false)
+                            .isObscure;
                       },
                     ),
                   )
@@ -150,15 +151,15 @@ class _LoginPageState extends State<LoginPage> {
                       color: Colors.grey.shade600,
                     ),
                     const SizedBox(height: 18),
-                    GestureDetector(
-                      onTap: () {},
-                      child: SizedBox(
-                        height: 45,
-                        child: Image.asset(
-                          'assets/image/2993685_brand_brands_google_logo_logos_icon.png',
-                        ),
-                      ),
-                    )
+                    // GestureDetector(
+                    //   onTap: () {},
+                    //   child: SizedBox(
+                    //     height: 45,
+                    //     child: Image.asset(
+                    //       'assets/image/2993685_brand_brands_google_logo_logos_icon.png',
+                    //     ),
+                    //   ),
+                    // )
                   ],
                 ),
               ),
