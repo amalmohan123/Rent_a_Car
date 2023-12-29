@@ -52,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-              ),
+              ), 
               const SizedBox(height: 20),
               Stack(
                 children: [
@@ -107,8 +107,9 @@ class _LoginPageState extends State<LoginPage> {
                                   child: const Text(
                                     'Forgoat Password?',
                                     style: TextStyle(
-                                        color:
-                                            Color.fromARGB(255, 232, 65, 53)),
+                                      color: Color.fromARGB(255, 232, 65, 53),
+                                    
+                                    ),
                                   ),
                                 ),
                               ),
